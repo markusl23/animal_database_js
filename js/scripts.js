@@ -70,7 +70,7 @@ animalList = [
 ];
 
 document.querySelector('button').addEventListener('click', () => {
-  let currentAnimal = document.querySelector('#AnimalName').value;
+  let currentAnimal = document.querySelector('#animalName').value;
   document.querySelector('#animalName_key').innerText = currentAnimal;
   currentElement = animalList.find(a => a.name === currentAnimal)?.element ?? null;
   document.querySelector('#element').innerText = currentElement;
