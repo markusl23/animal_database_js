@@ -1,6 +1,6 @@
 let animalList = [];
 
-let animalList = let animalList = [
+animalList = [
   {
     'name': "Orca",
     'element': "Water",
