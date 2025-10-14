@@ -16,8 +16,9 @@ span {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 80vw;
   grid-gap: 20px;
+  justify-content: center;
 }
 
 .grid-container > div{
