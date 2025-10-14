@@ -69,13 +69,22 @@ animalList = [
   },
 ];
 
+// listen to animal selection by user
 document.querySelector('button').addEventListener('click', () => {
+  // store animal selection by user in variable
   let currentAnimal = document.querySelector('#animalName').value;
+  // add selected animal name to DOM tree
   document.querySelector('#animalName_key').innerText = currentAnimal;
+  // find animal element/habitat in array "animalList"
   currentElement = animalList.find(a => a.name === currentAnimal)?.element ?? null;
+  // add animal element/habitat to DOM tree
   document.querySelector('#element').innerText = currentElement;
+  // find animal weight in array "animalList"
   currentWeight = animalList.find(a => a.name === currentAnimal)?.averageWeightKilogram ?? null;
+  // add animal weight to DOM tree
   document.querySelector('#weight').innerText = currentWeight;
+  // find animal food in array "animalList"
   currentFood = animalList.find(a => a.name === currentAnimal)?.foodType ?? null;
+  // add animal food to DOM tree
   document.querySelector('#food').innerText = currentFood;
 });
