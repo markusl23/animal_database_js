@@ -68,3 +68,14 @@ animalList = [
     'foodType': "Omnivore"
   },
 ];
+
+document.querySelector('button').addEventListener('click', () => {
+  let currentAnimal = document.querySelector('#AnimalName').value;
+  document.querySelector('#animalName_key').innerText = currentAnimal;
+  currentElement = animalList.find(a => a.name === currentAnimal)?.element ?? null;
+  document.querySelector('#element').innerText = currentElement;
+  currentWeight = animalList.find(a => a.name === currentAnimal)?.averageWeightKilogram ?? null;
+  document.querySelector('#weight').innerText = currentWeight;
+  currentFood = animalList.find(a => a.name === currentAnimal)?.foodType ?? null;
+  document.querySelector('#food').innerText = currentFood;
+});
