@@ -88,7 +88,7 @@ for (let i = 0; i < animalList.length; i++) {
 }
 document.querySelector('#landAnimalNumber').innerText = landAnimalNumber;
 document.querySelector('#waterAnimalNumber').innerText = waterAnimalNumber;
-document.querySelector('#airAnimalNumber').innerText = airdAnimalNumber;
+document.querySelector('#airAnimalNumber').innerText = airAnimalNumber;
 
 // listen to animal selection by user
 document.querySelector('button').addEventListener('click', () => {
