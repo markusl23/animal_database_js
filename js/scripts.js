@@ -69,7 +69,7 @@ animalList = [
   },
 ];
 
-// animal weight distribution
+// animal attributes distribution
 
 // calculate number of animals based on element/habitat
 let landAnimalNumber = 0;
@@ -86,9 +86,35 @@ for (let i = 0; i < animalList.length; i++) {
     airAnimalNumber++;
   }
 }
+
+// add animal habitat/element numbers to DOM tree
 document.querySelector('#landAnimalNumber').innerText = landAnimalNumber;
 document.querySelector('#waterAnimalNumber').innerText = waterAnimalNumber;
 document.querySelector('#airAnimalNumber').innerText = airAnimalNumber;
+
+// find highest & lowest animal weight, and corresponding animal name
+let maxAnimalWeight = (animalList[0].averageWeightKilogram + animalList[1].averageWeightKilogram) / 2;
+let maxWeightAnimalName = '';
+let minAnimalWeight = (animalList[0].averageWeightKilogram + animalList[1].averageWeightKilogram) / 2;
+let minWeightAnimalName = '';
+
+// loop over animalList, compare weight numbers & find min/max + name
+for (let i = 0; i < animalList.length; i++) {
+  if (animalList[i].averageWeightKilogram > maxAnimalWeight) {
+    maxAnimalWeight = animalList[i].averageWeightKilogram;
+    maxWeightAnimalName = animalList[i].name;
+  }
+  else if (animalList[i].averageWeightKilogram < minAnimalWeight) {
+  minAnimalWeight = animalList[i].averageWeightKilogram;
+  minWeightAnimalName = animalList[i].name;
+  }
+}
+
+// add animal weigh numbers & anems to DOM tree
+document.querySelector('#maxWeightAnimalName').innerText = maxWeightAnimalName;
+document.querySelector('#maxAnimalWeight').innerText = maxAnimalWeight;
+document.querySelector('#minWeightAnimalName').innerText = minWeightAnimalName;
+document.querySelector('#minAnimalWeight').innerText = minAnimalWeight;
 
 // listen to animal selection by user
 document.querySelector('button').addEventListener('click', () => {
