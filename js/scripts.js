@@ -33,7 +33,7 @@ animalList = [
   },
   {
     'name': "Albatross",
-    'element': "Water",
+    'element': "Air",
     'averageWeightKilogram': 7,
     'foodType': "Herbivore"
   },
@@ -68,6 +68,24 @@ animalList = [
     'foodType': "Omnivore"
   },
 ];
+
+// animal weight distribution
+
+// calculate number of animals based on element/habitat
+let landAnimalNumber = 0;
+let waterAnimalNumber = 0;
+let airAnimalNumber = 0;
+for (let i = 0; i < animalList.length; i++) {
+  if (animalList[i].element === 'Land') {
+    landAnimalNumber++;
+  }
+  else if (animalList[i].element === 'Water') {
+    waterAnimalNumber++;
+  }
+  else if (animalList[i].element === 'Air') {
+    waterAnimalNumber++;
+  }
+}
 
 // listen to animal selection by user
 document.querySelector('button').addEventListener('click', () => {
