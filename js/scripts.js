@@ -83,7 +83,7 @@ for (let i = 0; i < animalList.length; i++) {
     waterAnimalNumber++;
   }
   else if (animalList[i].element === 'Air') {
-    waterAnimalNumber++;
+    airAnimalNumber++;
   }
 }
 document.querySelector('#landAnimalNumber').innerText = landAnimalNumber;
