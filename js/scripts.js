@@ -110,11 +110,32 @@ for (let i = 0; i < animalList.length; i++) {
   }
 }
 
-// add animal weigh numbers & anems to DOM tree
+// add animal weight numbers & names to DOM tree
 document.querySelector('#maxWeightAnimalName').innerText = maxWeightAnimalName;
 document.querySelector('#maxAnimalWeight').innerText = maxAnimalWeight;
 document.querySelector('#minWeightAnimalName').innerText = minWeightAnimalName;
 document.querySelector('#minAnimalWeight').innerText = minAnimalWeight;
+
+// calculate number of animals based on diet
+let carnivoreAnimalNumber = 0;
+let herbivoreAnimalNumber = 0;
+let omnivoreAnimalNumber = 0;
+for (let i = 0; i < animalList.length; i++) {
+  if (animalList[i].foodType === 'Carnivore') {
+    carnivoreAnimalNumber++;
+  }
+  else if (animalList[i].foodType === 'Herbivore') {
+    herbivoreAnimalNumber++;
+  }
+  else if (animalList[i].foodType === 'Omnivore') {
+    omnivoreAnimalNumber++;
+  }
+}
+
+// add animal diet numbers to DOM tree
+document.querySelector('#carnivoreAnimalNumber').innerText = carnivoreAnimalNumber;
+document.querySelector('#herbivoreAnimalNumber').innerText = herbivoreAnimalNumber;
+document.querySelector('#omnivoreAnimalNumber').innerText = omnivoreAnimalNumber;
 
 // listen to animal selection by user
 document.querySelector('button').addEventListener('click', () => {
