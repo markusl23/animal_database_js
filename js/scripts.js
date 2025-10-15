@@ -93,9 +93,9 @@ document.querySelector('#waterAnimalNumber').innerText = waterAnimalNumber;
 document.querySelector('#airAnimalNumber').innerText = airAnimalNumber;
 
 // find highest & lowest animal weight, and corresponding animal name
-let maxAnimalWeight = (animalList[0].averageWeightKilogram + animalList[1].averageWeightKilogram) / 2;
+let maxAnimalWeight = (animalList[0].averageWeightKilogram + animalList[1].averageWeightKilogram + 0.1) / 2;
 let maxWeightAnimalName = '';
-let minAnimalWeight = (animalList[0].averageWeightKilogram + animalList[1].averageWeightKilogram) / 2;
+let minAnimalWeight = (animalList[0].averageWeightKilogram + animalList[1].averageWeightKilogram + 0.1) / 2;
 let minWeightAnimalName = '';
 
 // loop over animalList, compare weight numbers & find min/max + name
