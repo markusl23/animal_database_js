@@ -151,6 +151,36 @@ let animalRepository = (function () {
     return minAnimalWeightName;
   }
 
+  function countCarnivoreAnimals () {
+    let carnivoreAnimalNumber = 0;
+    animalList.forEach(function(animal) {
+      if (animal.foodType === 'Carnivore') {
+        carnivoreAnimalNumber++;
+      }
+    })
+    return carnivoreAnimalNumber;
+  }
+
+  function countHerbivoreAnimals () {
+    let herbivoreAnimalNumber = 0;
+    animalList.forEach(function(animal) {
+      if (animal.foodType === 'Herbivore') {
+        herbivoreAnimalNumber++;
+      }
+    })
+    return herbivoreAnimalNumber;
+  }
+
+  function countOmnivoreAnimals () {
+    let omnivoreAnimalNumber = 0;
+    animalList.forEach(function(animal) {
+      if (animal.foodType === 'Omnivore') {
+        omnivoreAnimalNumber++;
+      }
+    })
+    return omnivoreAnimalNumber;
+  }
+
   return {
     getAll: getAll,
     add: add,
@@ -160,7 +190,10 @@ let animalRepository = (function () {
     findMaxAnimalWeight: findMaxAnimalWeight,
     findMinAnimalWeight: findMinAnimalWeight,
     findMaxAnimalWeightName: findMaxAnimalWeightName,
-    findMinAnimalWeightName: findMinAnimalWeightName
+    findMinAnimalWeightName: findMinAnimalWeightName,
+    countCarnivoreAnimals: countCarnivoreAnimals,
+    countHerbivoreAnimals: countHerbivoreAnimals,
+    countOmnivoreAnimals: countOmnivoreAnimals
   }
 
 })()
@@ -173,6 +206,9 @@ let currentMaxAnimalWeight = animalRepository.findMaxAnimalWeight();
 let currentMinAnimalWeight = animalRepository.findMinAnimalWeight();
 let currentMaxAnimalWeightName = animalRepository.findMaxAnimalWeightName();
 let currentMinAnimalWeightName = animalRepository.findMinAnimalWeightName();
+let currentCarnivoreAnimalNumber = animalRepository.countCarnivoreAnimals();
+let currentHerbivoreAnimalNumber = animalRepository.countHerbivoreAnimals();
+let currentOmnivoreAnimalNumber = animalRepository.countOmnivoreAnimals();
 
 // add animal habitat/element numbers to DOM tree
 document.querySelector('#landAnimalNumber').innerText = currentNumberLandAnimals;
@@ -185,26 +221,10 @@ document.querySelector('#maxAnimalWeight').innerText = currentMaxAnimalWeight;
 document.querySelector('#minWeightAnimalName').innerText = currentMinAnimalWeightName;
 document.querySelector('#minAnimalWeight').innerText = currentMinAnimalWeight;
 
-// findulate number of animals based on diet
-let carnivoreAnimalNumber = 0;
-let herbivoreAnimalNumber = 0;
-let omnivoreAnimalNumber = 0;
-for (let i = 0; i < currentAnimalList.length; i++) {
-  if (currentAnimalList[i].foodType === 'Carnivore') {
-    carnivoreAnimalNumber++;
-  }
-  else if (currentAnimalList[i].foodType === 'Herbivore') {
-    herbivoreAnimalNumber++;
-  }
-  else if (currentAnimalList[i].foodType === 'Omnivore') {
-    omnivoreAnimalNumber++;
-  }
-}
-
 // add animal diet numbers to DOM tree
-document.querySelector('#carnivoreAnimalNumber').innerText = carnivoreAnimalNumber;
-document.querySelector('#herbivoreAnimalNumber').innerText = herbivoreAnimalNumber;
-document.querySelector('#omnivoreAnimalNumber').innerText = omnivoreAnimalNumber;
+document.querySelector('#carnivoreAnimalNumber').innerText = currentCarnivoreAnimalNumber;
+document.querySelector('#herbivoreAnimalNumber').innerText = currentHerbivoreAnimalNumber;
+document.querySelector('#omnivoreAnimalNumber').innerText = currentOmnivoreAnimalNumber;
 
 // listen to animal selection by user
 document.querySelector('button').addEventListener('click', () => {
