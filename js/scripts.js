@@ -227,7 +227,7 @@ document.querySelector('#herbivoreAnimalNumber').innerText = currentHerbivoreAni
 document.querySelector('#omnivoreAnimalNumber').innerText = currentOmnivoreAnimalNumber;
 
 // listen to animal selection by user
-document.querySelector('button').addEventListener('click', () => {
+document.querySelector('#select_animal_button').addEventListener('click', () => {
   // store animal selection by user in variable
   let currentAnimal = document.querySelector('#animalName').value;
   // add selected animal name to DOM tree
