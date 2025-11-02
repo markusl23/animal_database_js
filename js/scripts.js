@@ -107,12 +107,61 @@ let animalRepository = (function () {
     return airAnimalNumber;
   }
 
+  function findMaxAnimalWeight () {
+    let maxAnimalWeight = (animalList[0].averageWeightKilogram + animalList[1].averageWeightKilogram + 0.1) / 2;
+    animalList.forEach(function(animal) {
+      if (animal.averageWeightKilogram > maxAnimalWeight) {
+        maxAnimalWeight = animal.averageWeightKilogram;
+      }
+    })
+    return maxAnimalWeight;
+  }
+
+  function findMinAnimalWeight () {
+    let minAnimalWeight = (animalList[0].averageWeightKilogram + animalList[1].averageWeightKilogram + 0.1) / 2;
+    animalList.forEach(function(animal) {
+      if (animal.averageWeightKilogram < minAnimalWeight) {
+        minAnimalWeight = animal.averageWeightKilogram;
+      }
+    })
+    return minAnimalWeight;
+  }
+
+  function findMaxAnimalWeightName () {
+    let maxAnimalWeightName = animalList[0].name;
+    let maxAnimalWeight = (animalList[0].averageWeightKilogram + animalList[1].averageWeightKilogram + 0.1) / 2; 
+    animalList.forEach(function(animal) {
+      if (animal.averageWeightKilogram > maxAnimalWeight) {
+        maxAnimalWeightName = animal.name;
+        maxAnimalWeight = animal.averageWeightKilogram;
+      }
+    })
+    return maxAnimalWeightName;
+  }
+
+  function findMinAnimalWeightName () {
+    let minAnimalWeightName = animalList[0].name;
+    let minAnimalWeight = (animalList[0].averageWeightKilogram + animalList[1].averageWeightKilogram + 0.1) / 2;
+    animalList.forEach(function(animal) {
+      if (animal.averageWeightKilogram < minAnimalWeight) {
+        minAnimalWeightName = animal.name;
+        minAnimalWeight = animal.averageWeightKilogram;
+      }
+    })
+    return minAnimalWeightName;
+  }
+
   return {
     getAll: getAll,
     add: add,
     countLandAnimals: countLandAnimals,
     countWaterAnimals: countWaterAnimals,
-    countAirAnimals: countAirAnimals
+    countAirAnimals: countAirAnimals,
+    findMaxAnimalWeight: findMaxAnimalWeight,
+    findMinAnimalWeight: findMinAnimalWeight,
+    findMaxAnimalWeightName: findMaxAnimalWeightName,
+    findMinAnimalWeightName: findMinAnimalWeightName
+
   }
 
 })()
@@ -121,37 +170,23 @@ let currentAnimalList = animalRepository.getAll();
 let currentNumberLandAnimals = animalRepository.countLandAnimals();
 let currentNumberWaterAnimals = animalRepository.countWaterAnimals();
 let currentNumberAirAnimals = animalRepository.countAirAnimals();
+let currentMaxAnimalWeight = animalRepository.findMaxAnimalWeight();
+let currentMinAnimalWeight = animalRepository.findMinAnimalWeight();
+let currentMaxAnimalWeightName = animalRepository.findMaxAnimalWeightName();
+let currentMinAnimalWeightName= animalRepository.findMinAnimalWeightName();
 
 // add animal habitat/element numbers to DOM tree
 document.querySelector('#landAnimalNumber').innerText = currentNumberLandAnimals;
 document.querySelector('#waterAnimalNumber').innerText = currentNumberWaterAnimals;
 document.querySelector('#airAnimalNumber').innerText = currentNumberAirAnimals;
 
-// find highest & lowest animal weight, and corresponding animal name
-let maxAnimalWeight = (currentAnimalList[0].averageWeightKilogram + currentAnimalList[1].averageWeightKilogram + 0.1) / 2;
-let maxWeightAnimalName = '';
-let minAnimalWeight = (currentAnimalList[0].averageWeightKilogram + currentAnimalList[1].averageWeightKilogram + 0.1) / 2;
-let minWeightAnimalName = '';
-
-// loop over currentAnimalList, compare weight numbers & find min/max + name
-for (let i = 0; i < currentAnimalList.length; i++) {
-  if (currentAnimalList[i].averageWeightKilogram > maxAnimalWeight) {
-    maxAnimalWeight = currentAnimalList[i].averageWeightKilogram;
-    maxWeightAnimalName = currentAnimalList[i].name;
-  }
-  else if (currentAnimalList[i].averageWeightKilogram < minAnimalWeight) {
-  minAnimalWeight = currentAnimalList[i].averageWeightKilogram;
-  minWeightAnimalName = currentAnimalList[i].name;
-  }
-}
-
 // add animal weight numbers & names to DOM tree
-document.querySelector('#maxWeightAnimalName').innerText = maxWeightAnimalName;
-document.querySelector('#maxAnimalWeight').innerText = maxAnimalWeight;
-document.querySelector('#minWeightAnimalName').innerText = minWeightAnimalName;
-document.querySelector('#minAnimalWeight').innerText = minAnimalWeight;
+document.querySelector('#maxWeightAnimalName').innerText = currentMaxAnimalWeightName;
+document.querySelector('#maxAnimalWeight').innerText = currentMaxAnimalWeight;
+document.querySelector('#minWeightAnimalName').innerText = currentMinAnimalWeightName;
+document.querySelector('#minAnimalWeight').innerText = currentMinAnimalWeight;
 
-// calculate number of animals based on diet
+// findulate number of animals based on diet
 let carnivoreAnimalNumber = 0;
 let herbivoreAnimalNumber = 0;
 let omnivoreAnimalNumber = 0;
