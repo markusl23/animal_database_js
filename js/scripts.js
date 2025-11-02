@@ -86,15 +86,14 @@ let animalRepository = (function () {
 
 let currentAnimalList = animalRepository.getAll();
 
-// console.log(currentAnimalList);
-// console.log(animalRepository.getAll());
-
 // animal attributes distribution
 
 // calculate number of animals based on element/habitat
 let landAnimalNumber = 0;
 let waterAnimalNumber = 0;
 let airAnimalNumber = 0;
+
+/*
 for (let i = 0; i < currentAnimalList.length; i++) {
   if (currentAnimalList[i].element === 'Land') {
     landAnimalNumber++;
@@ -106,6 +105,19 @@ for (let i = 0; i < currentAnimalList.length; i++) {
     airAnimalNumber++;
   }
 }
+*/
+
+currentAnimalList.forEach(function(animal) {
+  if (animal.element === 'Land') {
+    landAnimalNumber++;
+  }
+  else if (animal.element === 'Water') {
+    waterAnimalNumber++;
+  }
+  else if (animal.element === 'Air') {
+    airAnimalNumber++;
+  }
+})
 
 // add animal habitat/element numbers to DOM tree
 document.querySelector('#landAnimalNumber').innerText = landAnimalNumber;
