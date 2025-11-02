@@ -77,38 +77,55 @@ let animalRepository = (function () {
     animalList.push(newAnimal);
   }
 
+  function countLandAnimals () {
+    let landAnimalNumber = 0;
+    animalList.forEach(function(animal) {
+      if (animal.element === 'Land') {
+        landAnimalNumber++;
+      }
+    })
+    return landAnimalNumber;
+  }
+
+  function countWaterAnimals () {
+    let waterAnimalNumber = 0;
+    animalList.forEach(function(animal) {
+      if (animal.element === 'Water') {
+        waterAnimalNumber++;
+      }
+    })
+    return waterAnimalNumber;
+  }
+
+  function countAirAnimals () {
+    let airAnimalNumber = 0;
+    animalList.forEach(function(animal) {
+      if (animal.element === 'Air') {
+        airAnimalNumber++;
+      }
+    })
+    return airAnimalNumber;
+  }
+
   return {
     getAll: getAll,
-    add: add
+    add: add,
+    countLandAnimals: countLandAnimals,
+    countWaterAnimals: countWaterAnimals,
+    countAirAnimals: countAirAnimals
   }
 
 })()
 
 let currentAnimalList = animalRepository.getAll();
-
-// animal attributes distribution
-
-// calculate number of animals based on element/habitat
-let landAnimalNumber = 0;
-let waterAnimalNumber = 0;
-let airAnimalNumber = 0;
-
-currentAnimalList.forEach(function(animal) {
-  if (animal.element === 'Land') {
-    landAnimalNumber++;
-  }
-  else if (animal.element === 'Water') {
-    waterAnimalNumber++;
-  }
-  else if (animal.element === 'Air') {
-    airAnimalNumber++;
-  }
-})
+let currentNumberLandAnimals = animalRepository.countLandAnimals();
+let currentNumberWaterAnimals = animalRepository.countWaterAnimals();
+let currentNumberAirAnimals = animalRepository.countAirAnimals();
 
 // add animal habitat/element numbers to DOM tree
-document.querySelector('#landAnimalNumber').innerText = landAnimalNumber;
-document.querySelector('#waterAnimalNumber').innerText = waterAnimalNumber;
-document.querySelector('#airAnimalNumber').innerText = airAnimalNumber;
+document.querySelector('#landAnimalNumber').innerText = currentNumberLandAnimals;
+document.querySelector('#waterAnimalNumber').innerText = currentNumberWaterAnimals;
+document.querySelector('#airAnimalNumber').innerText = currentNumberAirAnimals;
 
 // find highest & lowest animal weight, and corresponding animal name
 let maxAnimalWeight = (currentAnimalList[0].averageWeightKilogram + currentAnimalList[1].averageWeightKilogram + 0.1) / 2;
