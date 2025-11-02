@@ -245,3 +245,24 @@ document.querySelector('#select_animal_button').addEventListener('click', () => 
   // add animal food to DOM tree
   document.querySelector('#food').innerText = currentFood;
 });
+
+//listen to animal addition by user
+document.querySelector('#add_animal_button').addEventListener('click', () => {
+  let addedAnimal = {
+    'name': document.querySelector('#newAnimalName').value,
+    'element': document.querySelector('#newAnimalElement').value,
+    'averageWeightKilogram': document.querySelector('#newAnimalWeight').value,
+    'foodType': document.querySelector('#newAnimalFood').value
+  }
+  console.log(addedAnimal.name);
+  console.log(addedAnimal.element);
+  console.log(addedAnimal.averageWeightKilogram);
+  console.log(addedAnimal.foodType);
+  animalRepository.add(addedAnimal);
+  addedAnimalLog = animalRepository.getAll();
+  console.log(addedAnimalLog);
+  let newOption = document.getElementById("animalName");
+  let option = document.createElement("option");
+  option.text = addedAnimal.name;
+  newOption.add(option);
+});

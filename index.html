@@ -9,7 +9,7 @@
 	<title>Animal Database JS</title>
 </head>
 <body>
-	<img id="logo" src="img/animals.png">
+	<img id="logo" src="img/animals.png" alt="Logo image containing various animals">
 	<div class='grid-container'>
     <div>
      <h1>Animal Database</h1>
@@ -51,12 +51,12 @@
     	<form>
     		<div>
 	    		<div>
-		    		<label for="name">Name</label>
-		    		<input type="text" name="name" id="name">
+		    		<label for="newAnimalName">newAnimalName</label>
+		    		<input type="text" name="name" id="newAnimalName" required>
 		    	</div>
 		    	<div>
-		    		<label for="element">Element/habitat</label>
-		    		<select name="element" id="element">
+		    		<label for="newAnimalElement">Element/habitat</label>
+		    		<select name="element" id="newAnimalElement" required>
 		    			<option value="" disabled selected hidden>...</option>
 		    			<option value="Land">Land</option>
 		    			<option value="Water">Water</option>
@@ -64,12 +64,12 @@
 		    		</select>
 		    	</div>
 		    	<div>
-		    		<label for="weight">Average weight in kilogram</label>
-		    		<input type="Number" name="weight" id="weight">
+		    		<label for="newAnimalWeight">Average weight in kilogram</label>
+		    		<input type="Number" name="weight" id="newAnimalWeight" required>
 	    		</div>
 	    		<div>
-		    		<label for="foodtype">Food</label>
-		    		<select name="foodtype" id="foodtype">
+		    		<label for="newAnimalFood">Food</label>
+		    		<select name="foodtype" id="newAnimalFood" required>
 		    			<option value="" disabled selected hidden>...</option>
 		    			<option value="Carnivore">Carnivore</option>
 		    			<option value="Herbivore">Herbivore</option>
@@ -82,24 +82,22 @@
     </div>
     <div>
     	<h1>Animal attributes distribution</h1>
+    	<h3>Element/habitat:</h3>
     	<ul>
-    		<li><h3>Element/habitat:</h3></li>
-    		<ul>
-    			<li>Number of land animals: <span id="landAnimalNumber"></span></li>
-    			<li>Number of marine animals: <span id="waterAnimalNumber"></span></li>
-    			<li>Number of birds etc.: <span id="airAnimalNumber"></span></li>
-    		</ul>
-    		<li><h3>Weight in kilogram:</h3></li>
-    		<ul>
-    			<li>Most heavy animal: <span id="maxWeightAnimalName"></span>, <span id="maxAnimalWeight"></span></li>
-    			<li>Most light animal: <span id="minWeightAnimalName"></span>, <span id="minAnimalWeight"></span></li>
-    		</ul>
-    		<li><h3>Diet:</h3></li>
-    		<ul>
-    			<li>Carnivores: <span id="carnivoreAnimalNumber"></span></li>
-    			<li>Herbivores: <span id="herbivoreAnimalNumber"></span></li>
-    			<li>Omnivores: <span id="omnivoreAnimalNumber"></span></li>
-    		</ul>
+    		<li>Number of land animals: <span id="landAnimalNumber"></span></li>
+    		<li>Number of marine animals: <span id="waterAnimalNumber"></span></li>
+    		<li>Number of birds etc.: <span id="airAnimalNumber"></span></li>
+    	</ul>
+    	<h3>Weight in kilogram:</h3>
+    	<ul>
+    		<li>Most heavy animal: <span id="maxWeightAnimalName"></span>, <span id="maxAnimalWeight"></span></li>
+    		<li>Most light animal: <span id="minWeightAnimalName"></span>, <span id="minAnimalWeight"></span></li>
+    	</ul>
+    	<h3>Diet:</h3>
+    	<ul>
+    		<li>Carnivores: <span id="carnivoreAnimalNumber"></span></li>
+    		<li>Herbivores: <span id="herbivoreAnimalNumber"></span></li>
+    		<li>Omnivores: <span id="omnivoreAnimalNumber"></span></li>
     	</ul>
     </div>
   </div>
