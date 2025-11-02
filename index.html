@@ -48,6 +48,37 @@
     </div>
     <div>
     	<h1>Add animal to list</h1>
+    	<form>
+    		<div class="grid-container">
+	    		<div>
+		    		<label for="name">Name</label>
+		    		<input type="text" name="name" id="name">
+		    	</div>
+		    	<div>
+		    		<label for="element">Element/habitat</label>
+		    		<select name="element" id="element">
+		    			<option value="" disabled selected hidden>...</option>
+		    			<option value="Land">Land</option>
+		    			<option value="Water">Water</option>
+		    			<option value="Air">Air</option>
+		    		</select>
+		    	</div>
+		    	<div>
+		    		<label for="weight">Average weight in kilogram</label>
+		    		<input type="Number" name="weight" id="weight">
+	    		</div>
+	    		<div>
+		    		<label for="foodtype">Food</label>
+		    		<select name="foodtype" id="foodtype">
+		    			<option value="" disabled selected hidden>...</option>
+		    			<option value="Carnivore">Carnivore</option>
+		    			<option value="Herbivore">Herbivore</option>
+		    			<option value="Omnivore">Omnivore</option>
+		    		</select>
+		    	</div>
+		    </div>
+    		<button type="submit">Submit</button>
+    	</form>
     </div>
     <div>
     	<h1>Animal attributes distribution</h1>
