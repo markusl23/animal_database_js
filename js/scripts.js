@@ -93,20 +93,6 @@ let landAnimalNumber = 0;
 let waterAnimalNumber = 0;
 let airAnimalNumber = 0;
 
-/*
-for (let i = 0; i < currentAnimalList.length; i++) {
-  if (currentAnimalList[i].element === 'Land') {
-    landAnimalNumber++;
-  }
-  else if (currentAnimalList[i].element === 'Water') {
-    waterAnimalNumber++;
-  }
-  else if (currentAnimalList[i].element === 'Air') {
-    airAnimalNumber++;
-  }
-}
-*/
-
 currentAnimalList.forEach(function(animal) {
   if (animal.element === 'Land') {
     landAnimalNumber++;
