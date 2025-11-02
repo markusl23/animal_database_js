@@ -173,7 +173,7 @@ let currentNumberAirAnimals = animalRepository.countAirAnimals();
 let currentMaxAnimalWeight = animalRepository.findMaxAnimalWeight();
 let currentMinAnimalWeight = animalRepository.findMinAnimalWeight();
 let currentMaxAnimalWeightName = animalRepository.findMaxAnimalWeightName();
-let currentMinAnimalWeightName= animalRepository.findMinAnimalWeightName();
+let currentMinAnimalWeightName = animalRepository.findMinAnimalWeightName();
 
 // add animal habitat/element numbers to DOM tree
 document.querySelector('#landAnimalNumber').innerText = currentNumberLandAnimals;
