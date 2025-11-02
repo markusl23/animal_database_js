@@ -161,7 +161,6 @@ let animalRepository = (function () {
     findMinAnimalWeight: findMinAnimalWeight,
     findMaxAnimalWeightName: findMaxAnimalWeightName,
     findMinAnimalWeightName: findMinAnimalWeightName
-
   }
 
 })()
