@@ -254,15 +254,16 @@ document.querySelector('#add_animal_button').addEventListener('click', () => {
     'averageWeightKilogram': document.querySelector('#newAnimalWeight').value,
     'foodType': document.querySelector('#newAnimalFood').value
   }
-  console.log(addedAnimal.name);
-  console.log(addedAnimal.element);
-  console.log(addedAnimal.averageWeightKilogram);
-  console.log(addedAnimal.foodType);
+  
+  // add new animal data object to animalRepository
   animalRepository.add(addedAnimal);
-  addedAnimalLog = animalRepository.getAll();
-  console.log(addedAnimalLog);
-  let newOption = document.getElementById("animalName");
-  let option = document.createElement("option");
-  option.text = addedAnimal.name;
-  newOption.add(option);
+  
+  // add new animal as new option to animalName select 
+  let animalSelect = document.querySelector('#animalName');
+  let newAnimalOption = document.createElement('option');
+  // newAnimalOption.innerText = '<option value="' + addedAnimal.name + '">' + addedAnimal.name + '</option>';
+  newAnimalOption.value = addedAnimal.name;
+  newAnimalOption.innerText = addedAnimal.name;
+  animalSelect.appendChild(newAnimalOption);
+  console.log(document.querySelector('#animalName').innerHTML);
 });
