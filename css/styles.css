@@ -32,3 +32,8 @@ span {
   margin: 0 auto;
   border-radius: 50%;
 }
+
+.animal-overview-item-button {
+  border-radius: 10px;
+  background-color: #1ac1dd;
+}
