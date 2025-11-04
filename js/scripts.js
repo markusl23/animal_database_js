@@ -287,7 +287,6 @@ document.querySelector('#add_animal_button').addEventListener('click', () => {
   // add new animal as new option to animalName select 
   let animalSelect = document.querySelector('#animalName');
   let newAnimalOption = document.createElement('option');
-  // newAnimalOption.innerText = '<option value="' + addedAnimal.name + '">' + addedAnimal.name + '</option>';
   newAnimalOption.value = addedAnimal.name;
   newAnimalOption.innerText = addedAnimal.name;
   animalSelect.appendChild(newAnimalOption);
