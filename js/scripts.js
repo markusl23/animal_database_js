@@ -218,6 +218,7 @@ let animalRepository = (function () {
     countHerbivoreAnimals: countHerbivoreAnimals,
     countOmnivoreAnimals: countOmnivoreAnimals,
     fillAnimalOverview: fillAnimalOverview,
+    addAnimalButtonEventHandler: addAnimalButtonEventHandler,
     showOverviewAnimalDetails: showOverviewAnimalDetails
   }
 
