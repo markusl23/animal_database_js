@@ -281,4 +281,5 @@ document.querySelector('#add_animal_button').addEventListener('click', () => {
   console.log(document.querySelector('#animalName').innerHTML);
 });
 
+// fill animal overview
 animalRepository.fillAnimalOverview();
