@@ -37,3 +37,12 @@ span {
   border-radius: 10px;
   background-color: #1ac1dd;
 }
+
+.animal-overview-item-button:hover {
+  background-color: white;
+}
+
+.animal-overview-item-button:active {
+  background-color: black;
+  color: white;
+}
