@@ -190,7 +190,18 @@ let animalRepository = (function () {
       animalOverviewItemButton.classList.add('animal-overview-item-button')
       animalOverviewItem.appendChild(animalOverviewItemButton);
       animalOverview.appendChild(animalOverviewItem);
+      addAnimalButtonEventHandler (animalOverviewItemButton, animal);
     })
+  }
+
+  function addAnimalButtonEventHandler (button, animal) {
+    button.addEventListener('click', function(event) {
+      showOverviewAnimalDetails(animal);
+    })
+  }
+
+  function showOverviewAnimalDetails (animal) {
+    console.log(animal.name);
   }
 
   return {
@@ -206,7 +217,8 @@ let animalRepository = (function () {
     countCarnivoreAnimals: countCarnivoreAnimals,
     countHerbivoreAnimals: countHerbivoreAnimals,
     countOmnivoreAnimals: countOmnivoreAnimals,
-    fillAnimalOverview: fillAnimalOverview
+    fillAnimalOverview: fillAnimalOverview,
+    showOverviewAnimalDetails: showOverviewAnimalDetails
   }
 
 })()
