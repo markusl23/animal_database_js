@@ -181,6 +181,18 @@ let animalRepository = (function () {
     return omnivoreAnimalNumber;
   }
 
+  function fillAnimalOverview () {
+    let animalOverview = document.querySelector('.animal_overview');
+    animalList.forEach(function(animal) {
+      let animalOverviewItem = document.createElement('li');
+      let animalOverviewItemButton = document.createElement('button');
+      animalOverviewItemButton.innerText = animal.name;
+      animalOverviewItemButton.classList.add('animal-overview-item-button')
+      animalOverviewItem.appendChild(animalOverviewItemButton);
+      animalOverview.appendChild(animalOverviewItem);
+    })
+  }
+
   return {
     getAll: getAll,
     add: add,
@@ -193,7 +205,8 @@ let animalRepository = (function () {
     findMinAnimalWeightName: findMinAnimalWeightName,
     countCarnivoreAnimals: countCarnivoreAnimals,
     countHerbivoreAnimals: countHerbivoreAnimals,
-    countOmnivoreAnimals: countOmnivoreAnimals
+    countOmnivoreAnimals: countOmnivoreAnimals,
+    fillAnimalOverview: fillAnimalOverview
   }
 
 })()
@@ -267,3 +280,5 @@ document.querySelector('#add_animal_button').addEventListener('click', () => {
   animalSelect.appendChild(newAnimalOption);
   console.log(document.querySelector('#animalName').innerHTML);
 });
+
+animalRepository.fillAnimalOverview();
