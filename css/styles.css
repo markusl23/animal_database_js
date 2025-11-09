@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding: 3px;
   font-family: Helvetica, Arial;
+  background-color: sandybrown;
   /*
   border: 1px;
   border-style: solid;
@@ -14,6 +15,10 @@ span {
   font-weight: bolder;
 }
 
+h1 {
+  color: darkolivegreen;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 80vw;
@@ -22,12 +27,13 @@ span {
 }
 
 .grid-container > div{
-  border: 1px black solid;
+  border: 5px olivedrab solid;
   padding : 20px;
+  border-radius: 30px;
 }
 
 #logo {
-  width: 80vw;
+  width: 300px;
   display: block;
   margin: 0 auto;
   border-radius: 50%;
@@ -35,7 +41,7 @@ span {
 
 .animal-overview-item-button {
   border-radius: 10px;
-  background-color: #1ac1dd;
+  background-color: olive;
 }
 
 .animal-overview-item-button:hover {
@@ -45,8 +51,4 @@ span {
 .animal-overview-item-button:active {
   background-color: black;
   color: white;
-}
-
-.invisible {
-  display: none;
 }
