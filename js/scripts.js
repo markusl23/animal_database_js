@@ -37,7 +37,9 @@ let animalRepository = (function () {
     fetch('https://worldwide-impact.org/animal_data_api/animal_data.json').then(function (response) {
       return response.json();
     }).then(function (externalAnimalData) {
-      console.log(externalAnimalData);
+      externalAnimalData.forEach(function(externalAnimal) {
+        animalRepository.add(externalAnimal);
+      })
     }).catch(function () {
       console.log("Error!")
       });
@@ -55,6 +57,7 @@ let animalRepository = (function () {
 })()
 
 // fill animal overview
+animalRepository.loadAnimalList();
 animalRepository.fillAnimalOverview();
 
-animalRepository.loadAnimalList();
+console.log(animalRepository.getAll());
