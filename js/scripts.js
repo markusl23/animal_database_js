@@ -33,15 +33,28 @@ let animalRepository = (function () {
     console.log(animal.name);
   }
 
+  function loadAnimalList () {
+    fetch('https://worldwide-impact.org/animal_data_api/animal_data.json').then(function (response) {
+      return response.json();
+    }).then(function (animalList) {
+      console.log(animalList);
+    }).catch(function () {
+      console.log("Error!")
+      });
+  }
+
   return {
     getAll: getAll,
     add: add,
     fillAnimalOverview: fillAnimalOverview,
     addAnimalButtonEventHandler: addAnimalButtonEventHandler,
-    showOverviewAnimalDetails: showOverviewAnimalDetails
+    showOverviewAnimalDetails: showOverviewAnimalDetails,
+    loadAnimalList: loadAnimalList
   }
 
 })()
 
 // fill animal overview
 animalRepository.fillAnimalOverview();
+
+animalRepository.loadAnimalList();
