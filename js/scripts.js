@@ -9,9 +9,14 @@ let animalRepository = (function () {
   function add (newAnimal) {
     animalList.push(newAnimal);
   }
-  
+
   function fillAnimalOverview () {
     let animalOverview = document.querySelector('.animal_overview');
+    /*
+    console.log("fillAnimalOverview function called...");
+    console.log("Animal list:");
+    console.log(animalList);
+    */
     animalList.forEach(function(animal) {
       let animalOverviewItem = document.createElement('li');
       let animalOverviewItemButton = document.createElement('button');
@@ -34,7 +39,7 @@ let animalRepository = (function () {
   }
 
   function loadAnimalList () {
-    fetch('https://worldwide-impact.org/animal_data_api/animal_data.json').then(function (response) {
+    return fetch('https://worldwide-impact.org/animal_data_api/animal_data.json').then(function (response) {
       return response.json();
     }).then(function (externalAnimalData) {
       externalAnimalData.forEach(function(externalAnimal) {
@@ -45,19 +50,24 @@ let animalRepository = (function () {
       });
   }
 
+  function loadAnimalDetails (animal) {
+
+  }
+
   return {
     getAll: getAll,
     add: add,
     fillAnimalOverview: fillAnimalOverview,
     addAnimalButtonEventHandler: addAnimalButtonEventHandler,
     showOverviewAnimalDetails: showOverviewAnimalDetails,
-    loadAnimalList: loadAnimalList
+    loadAnimalList: loadAnimalList,
+    loadAnimalDetails: loadAnimalDetails
   }
 
 })()
 
 // fill animal overview
-animalRepository.loadAnimalList();
-animalRepository.fillAnimalOverview();
 
-console.log(animalRepository.getAll());
+animalRepository.loadAnimalList().then(function () {
+  animalRepository.fillAnimalOverview();
+});
