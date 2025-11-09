@@ -37,7 +37,7 @@ let animalRepository = (function () {
     })
   }
 
-  // add toggle functionality for animal buttons to display/hide animal details
+  // provide toggle functionality for animal buttons to display/hide animal details
   function showOverviewAnimalDetails (animal) {
     let url = animal.detailsUrl;
     loadAnimalDetails(url).then(function(externalAnimalDetails) {
