@@ -77,6 +77,14 @@ let animalRepository = (function () {
     })
   }
 
+  function showLoadingMessage () {
+
+  }
+
+  function hideLoadingMessage () {
+    
+  }
+
   // public/external methods
   return {
     getAll: getAll,
