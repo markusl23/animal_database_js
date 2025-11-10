@@ -39,8 +39,7 @@ let animalRepository = (function () {
 
   // provide toggle functionality for animal buttons to display/hide animal details
   function showOverviewAnimalDetails (animal) {
-    let url = animal.detailsUrl;
-    loadAnimalDetails(url).then(function(externalAnimalDetails) {
+    loadAnimalDetails(animal).then(function(externalAnimalDetails) {
       console.log(animal)
       let animalDetailsString = "Element: " + externalAnimalDetails.element + ", Weight in kilogram: " + externalAnimalDetails.averageWeightKilogram + ", Food type: " + externalAnimalDetails.foodType;
       let animalDetailsTextClass = "." + animal.stringName;
@@ -69,7 +68,8 @@ let animalRepository = (function () {
   }
 
   // load animal details data (element, weight & food type)
-  function loadAnimalDetails (url) {
+  function loadAnimalDetails (animal) {
+    let url = animal.detailsUrl;
     return fetch(url).then(function(response) {
       return response.json();
     }).then(function (externalAnimalDetails) {
@@ -84,7 +84,7 @@ let animalRepository = (function () {
   }
 
   function hideLoadingMessage () {
-    
+
   }
 
   // public/external methods
