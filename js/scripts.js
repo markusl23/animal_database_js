@@ -74,7 +74,9 @@ let animalRepository = (function () {
       return response.json();
     }).then(function (externalAnimalDetails) {
       return externalAnimalDetails;
-    })
+    }).catch(function () {
+      console.log("Error!")
+      });
   }
 
   function showLoadingMessage () {
