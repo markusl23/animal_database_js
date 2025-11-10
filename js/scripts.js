@@ -56,35 +56,48 @@ let animalRepository = (function () {
 
   // load animal data (id, name & details URL) from external source
   function loadAnimalList () {
+    let loadingMessageElement = document.querySelector('h1');
+    showLoadingMessage(loadingMessageElement);
     return fetch('https://worldwide-impact.org/animal_data_api/animal_data.json').then(function (response) {
       return response.json();
     }).then(function (externalAnimalData) {
+      hideLoadingMessage(loadingMessageElement);
       externalAnimalData.forEach(function(externalAnimal) {
         animalRepository.add(externalAnimal);
       })
     }).catch(function () {
+      hideLoadingMessage(loadingMessageElement);
       console.log("Error!")
       });
   }
 
   // load animal details data (element, weight & food type)
   function loadAnimalDetails (animal) {
+    let loadingMessageElementClass = animal.stringName;
+    let loadingMessageElement = document.querySelector(loadingMessageElementClass);
+    showLoadingMessage(loadingMessageElement);
     let url = animal.detailsUrl;
     return fetch(url).then(function(response) {
+      hideLoadingMessage(loadingMessageElement);
       return response.json();
     }).then(function (externalAnimalDetails) {
       return externalAnimalDetails;
     }).catch(function () {
+      hideLoadingMessage(loadingMessageElement);
       console.log("Error!")
       });
   }
 
-  function showLoadingMessage () {
-
+  function showLoadingMessage (loadingMessageElement) {
+    let loadingMessage = document.createElement('p');
+    loadingMessage.classList.add('loading-message');
+    loadingMessage.innerText = "Loading...";
+    loadingMessageElement.append(loadingMessage);
   }
 
-  function hideLoadingMessage () {
-
+  function hideLoadingMessage (loadingMessageElement) {
+    let loadingMessage = document.querySelector('.loading-message');
+    loadingMessageElement.remove(loadingMessage);
   }
 
   // public/external methods
@@ -95,7 +108,9 @@ let animalRepository = (function () {
     addAnimalButtonEventHandler: addAnimalButtonEventHandler,
     showOverviewAnimalDetails: showOverviewAnimalDetails,
     loadAnimalList: loadAnimalList,
-    loadAnimalDetails: loadAnimalDetails
+    loadAnimalDetails: loadAnimalDetails,
+    showLoadingMessage: showLoadingMessage,
+    hideLoadingMessage: hideLoadingMessage
   }
 
 })()
