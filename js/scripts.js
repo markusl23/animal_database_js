@@ -130,10 +130,6 @@ let animalRepository = (function () {
   modalContainer.classList.add('is-visible');
 }
 
-document.querySelector('#show-modal').addEventListener('click', () => {
-  showModal('Epic modal title!', 'Some impressive modal content...');
-})
-
 function hideModal () {
   modalContainer.classList.remove('is-visible');
 }
