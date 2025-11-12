@@ -40,7 +40,7 @@ let animalRepository = (function () {
   // provide toggle functionality for animal buttons to display/hide animal details
   function showOverviewAnimalDetails (animal) {
     loadAnimalDetails(animal).then(function(externalAnimalDetails) {
-      showModal(externalAnimalDetails);
+      showModal(animal, externalAnimalDetails);
     }) 
   }
 
@@ -93,7 +93,7 @@ let animalRepository = (function () {
 
   let modalContainer = document.querySelector('#modal-container');
 
-  function showModal (title, text) {
+  function showModal (animal, externalAnimalDetails) {
     modalContainer.innerHTML = '';
     
     let modal = document.createElement('div');
