@@ -102,6 +102,55 @@ let animalRepository = (function () {
     loadingMessage.remove();
   }
 
+  let modalContainer = document.querySelector('#modal-container');
+
+  function showModal (title, text) {
+  modalContainer.innerHTML = '';
+  
+  let modal = document.createElement('div');
+  modal.classList.add('modal');
+  
+  let closeButtonElement = document.createElement('button');
+  closeButtonElement.classList.add('modal-close');
+  closeButtonElement.innerText = 'Close';
+  closeButtonElement.addEventListener('click', hideModal);
+  
+  
+  let titleElement = document.createElement('h1');
+  titleElement.innerText = title;
+  
+  let contentElement = document.createElement('p');
+  contentElement.innerText = text;
+  
+  modal.appendChild(closeButtonElement);
+  modal.appendChild(titleElement);
+  modal.appendChild(contentElement);
+  modalContainer.appendChild(modal);
+
+  modalContainer.classList.add('is-visible');
+}
+
+document.querySelector('#show-modal').addEventListener('click', () => {
+  showModal('Epic modal title!', 'Some impressive modal content...');
+})
+
+function hideModal () {
+  modalContainer.classList.remove('is-visible');
+}
+  
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+    hideModal();
+  }
+});
+  
+window.addEventListener('click', (e) => {
+  let target = e.target;
+  if (target === modalContainer) {
+    hideModal();
+  }
+});
+
   // public/external methods
   return {
     getAll: getAll,
