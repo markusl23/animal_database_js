@@ -157,7 +157,9 @@ window.addEventListener('click', (e) => {
     loadAnimalList: loadAnimalList,
     loadAnimalDetails: loadAnimalDetails,
     showLoadingMessage: showLoadingMessage,
-    hideLoadingMessage: hideLoadingMessage
+    hideLoadingMessage: hideLoadingMessage,
+    showModal: showModal,
+    hideModal: hideModal
   }
 
 })()
