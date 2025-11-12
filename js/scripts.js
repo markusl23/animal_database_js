@@ -40,18 +40,7 @@ let animalRepository = (function () {
   // provide toggle functionality for animal buttons to display/hide animal details
   function showOverviewAnimalDetails (animal) {
     loadAnimalDetails(animal).then(function(externalAnimalDetails) {
-      console.log(animal.name);
-      let animalDetailsString = "Element: " + externalAnimalDetails.element + ", Weight in kilogram: " + externalAnimalDetails.averageWeightKilogram + ", Food type: " + externalAnimalDetails.foodType;
-      console.log(animalDetailsString);
-      let animalDetailsTextClass = "." + animal.stringName;
-      let animalDetailsTextElement = document.querySelector(animalDetailsTextClass);
-      
-      if (animalDetailsTextElement.innerText !== "") {
-        animalDetailsTextElement.innerText = "";
-      }
-      else {
-        animalDetailsTextElement.innerText = animalDetailsString;
-      }
+      showModal(externalAnimalDetails);
     }) 
   }
 
