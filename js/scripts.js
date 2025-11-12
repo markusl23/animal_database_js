@@ -106,14 +106,29 @@ let animalRepository = (function () {
     
     
     let titleElement = document.createElement('h1');
-    titleElement.innerText = title;
+    titleElement.innerText = animal.name;
     
-    let contentElement = document.createElement('p');
-    contentElement.innerText = text;
+    let contentListElement = document.createElement('ul');
     
+    let contentListHabitat = document.createElement('li');
+    contentListHabitat.innerText = "Habitat: " + externalAnimalDetails.element;
+
+    let contentListWeight = document.createElement('li');
+    contentListWeight.innerText = "Average weight in kilogram: " + externalAnimalDetails.averageWeightKilogram;
+
+    let contentListfoodType = document.createElement('li');
+    contentListfoodType.innerText = "Food type: " + externalAnimalDetails.foodType;
+
+    let animalImage = document.createElement('img');
+    animalImage.src = externalAnimalDetails.image;
+
     modal.appendChild(closeButtonElement);
     modal.appendChild(titleElement);
-    modal.appendChild(contentElement);
+    modal.appendChild(contentListElement);
+    contentListElement.appendChild(contentListHabitat);
+    contentListElement.appendChild(contentListWeight);
+    contentListElement.appendChild(contentListfoodType);
+    modal.appendChild(animalImage);
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add('is-visible');
