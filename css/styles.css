@@ -128,3 +128,7 @@ p {
 .modal p {
   margin-bottom: 0;
 }
+
+#modal-container > img {
+  max-width: 250px;
+}
