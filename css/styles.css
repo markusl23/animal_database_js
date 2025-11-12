@@ -135,4 +135,10 @@ p {
   object-fit: contain;
   display: block;
   margin: 10px auto;
+  float: right;
 }
+
+#modal-container .modal ul {
+  float: left;
+}
+
