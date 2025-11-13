@@ -145,11 +145,12 @@ p {
   float: right;
   background-color: white;
   padding: 20px;
+  margin: 20px;
 }
 
 #modal-container .modal ul {
   float: left;
   background-color: white;
   padding: 20px;
+  margin: 20px;
 }
-
