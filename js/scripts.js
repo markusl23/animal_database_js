@@ -1,5 +1,7 @@
+// IIFE to hold functions and variables
 let animalRepository = (function () {
 
+  // array to hold animal data fetched from external resource
   let animalList = [];
 
   // return the animal list also outside of the IIFE
@@ -37,14 +39,14 @@ let animalRepository = (function () {
     })
   }
 
-  // provide toggle functionality for animal buttons to display/hide animal details
+  // toggle modal display for an animal set by function parameter after animal overview button is clicked
   function showOverviewAnimalDetails (animal) {
     loadAnimalDetails(animal).then(function(externalAnimalDetails) {
       showModal(animal, externalAnimalDetails);
     }) 
   }
 
-  // load animal data (id, name & details URL) from external source
+  // load animal data (id, name, details URL & string name) from external source
   function loadAnimalList () {
     let loadingMessageElement = document.querySelector('h1');
     showLoadingMessage(loadingMessageElement);
@@ -78,6 +80,7 @@ let animalRepository = (function () {
       });
   }
 
+  // show loading message after element set by function parameter
   function showLoadingMessage (loadingMessageElement) {
     let loadingMessage = document.createElement('p');
     loadingMessage.classList.add('loading-message');
@@ -86,13 +89,16 @@ let animalRepository = (function () {
     console.log(loadingMessage.innerText);
   }
 
+  // hide previously set loading message
   function hideLoadingMessage (loadingMessageElement) {
     let loadingMessage = document.querySelector('.loading-message');
     loadingMessage.remove();
   }
 
+  // variable for modal container which overlays page after animal buttons are clicked
   let modalContainer = document.querySelector('#modal-container');
 
+  // create and populate a modal for an animal set by function parameters
   function showModal (animal, externalAnimalDetails) {
     modalContainer.innerHTML = '';
     
@@ -134,16 +140,19 @@ let animalRepository = (function () {
     modalContainer.classList.add('is-visible');
   }
 
+  // function to hide modal after certain evens have occured
   function hideModal () {
     modalContainer.classList.remove('is-visible');
   }
   
+  // event handler to close modal after escape keyboard button press by user
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
       hideModal();
     }
   });
-    
+  
+  // event handler to close modal after click by user in modalContainer outside of modal itself  
   window.addEventListener('click', (e) => {
     let target = e.target;
     if (target === modalContainer) {
