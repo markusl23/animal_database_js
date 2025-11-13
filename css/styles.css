@@ -65,6 +65,7 @@ p {
 .animal-overview-item-button {
   border-radius: 10px;
   background-color: olive;
+  font-family: 'Mansalva';
 }
 
 .animal-overview-item-button:hover {
@@ -134,6 +135,7 @@ p {
 
 .modal li {
   background-color: white;
+  font-family: 'Mansalva';
 }
 
 #modal-container .modal img {
