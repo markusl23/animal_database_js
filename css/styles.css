@@ -112,6 +112,7 @@ p {
   width: 100%;
   max-width: 700px;
   text-align: left;
+  border-radius: 30px;
 }
 
 .modal-close {
@@ -151,7 +152,7 @@ p {
   margin: 10px auto;
   background-color: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 50px;
 }
 
 #modal-container .modal ul {
