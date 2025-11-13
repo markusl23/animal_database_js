@@ -132,6 +132,10 @@ p {
   background-color: white;
 }
 
+.modal li {
+  background-color: white;
+}
+
 #modal-container .modal img {
   max-width: 100%;
   max-height: 250px;
@@ -140,10 +144,12 @@ p {
   margin: 10px auto;
   float: right;
   background-color: white;
+  padding: 20px;
 }
 
 #modal-container .modal ul {
   float: left;
   background-color: white;
+  padding: 20px;
 }
 
