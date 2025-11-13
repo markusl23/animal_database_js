@@ -145,11 +145,10 @@ p {
 
 #modal-container .modal img {
   max-width: 100%;
-  max-height: 250px;
+  max-height: 420px;
   object-fit: contain;
   display: block;
   margin: 10px auto;
-  float: right;
   background-color: white;
   padding: 20px;
   margin: 20px;
@@ -157,7 +156,6 @@ p {
 }
 
 #modal-container .modal ul {
-  float: left;
   background-color: white;
   padding: 20px;
   margin: 20px;
