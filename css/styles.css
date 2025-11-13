@@ -111,6 +111,7 @@ p {
   padding: 15px;
   width: 100%;
   max-width: 700px;
+  text-align: left;
 }
 
 .modal-close {
@@ -150,7 +151,6 @@ p {
   margin: 10px auto;
   background-color: white;
   padding: 20px;
-  margin: 20px;
   border-radius: 10px;
 }
 
@@ -158,5 +158,4 @@ p {
   background-color: white;
   padding: 20px;
   margin: 20px;
-  display: block;
 }
