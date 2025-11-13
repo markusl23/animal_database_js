@@ -119,14 +119,17 @@ p {
   background: none;
   color: #777;
   text-decoration: underline; */
+  background-color: lightgrey;
 }
 
 .modal h1 {
   margin-top: 0;
+  background-color: white;
 }
 
 .modal p {
   margin-bottom: 0;
+  background-color: white;
 }
 
 #modal-container .modal img {
@@ -136,9 +139,11 @@ p {
   display: block;
   margin: 10px auto;
   float: right;
+  background-color: white;
 }
 
 #modal-container .modal ul {
   float: left;
+  background-color: white;
 }
 
