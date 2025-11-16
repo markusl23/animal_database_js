@@ -96,7 +96,7 @@ let animalRepository = (function () {
   }
 
   // create and populate a modal for an animal set by function parameters
-  const bootstrapModal = new bootstrap.Modal(document.getElementById('animalModal'));
+  let bootstrapModal = new bootstrap.Modal(document.getElementById('animalModal'));
 
   function showModal(animal, externalAnimalDetails) {
     let modalElement = document.getElementById('animalModal');
