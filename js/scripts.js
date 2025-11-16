@@ -95,9 +95,6 @@ let animalRepository = (function () {
     loadingMessage.remove();
   }
 
-  // variable for modal container which overlays page after animal buttons are clicked
-  let modalContainer = document.querySelector('#modal-container');
-
   // create and populate a modal for an animal set by function parameters
   const bootstrapModal = new bootstrap.Modal(document.getElementById('animalModal'));
 
