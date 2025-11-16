@@ -1,5 +1,4 @@
 * {
-  box-sizing: border-box;
   padding: 3px;
   font-family: Helvetica, Arial;
   background-color: sandybrown;
@@ -85,7 +84,6 @@ p {
 #modal-container.is-visible {
   position: fixed;
   padding: 20px;
-  box-sizing: border-box;
   top: 0;
   left: 0;
   width: 100%;
@@ -106,7 +104,6 @@ p {
 .modal {
   margin: auto;
   display: inline-block;
-  box-sizing: border-box;
   background: #fff;
   padding: 15px;
   width: 100%;
