@@ -131,8 +131,7 @@ let animalRepository = (function () {
     loadAnimalDetails: loadAnimalDetails,
     showLoadingMessage: showLoadingMessage,
     hideLoadingMessage: hideLoadingMessage,
-    showModal: showModal,
-    hideModal: hideModal
+    showModal: showModal
   }
 
 })()
