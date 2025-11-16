@@ -71,17 +71,6 @@ p {
   color: white;
 }
 
-#animalModal .modal img {
-  max-width: 100%;
-  max-height: 420px;
-  object-fit: contain;
-  display: block;
-  margin: 10px auto;
-  background-color: white;
-  padding: 20px;
-  border-radius: 50px;
-}
-
 #animalModal {
   background: rgba(0, 0, 0, 0.5);
 }
