@@ -120,27 +120,6 @@ let animalRepository = (function () {
     bootstrapModal.show();
   }
 
-
-  // function to hide modal after certain evens have occured
-  function hideModal () {
-    modalContainer.classList.remove('is-visible');
-  }
-  
-  // event handler to close modal after escape keyboard button press by user
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-      hideModal();
-    }
-  });
-  
-  // event handler to close modal after click by user in modalContainer outside of modal itself  
-  window.addEventListener('click', (e) => {
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
-    }
-  });
-
   // public/external methods
   return {
     getAll: getAll,
