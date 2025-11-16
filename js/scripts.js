@@ -22,7 +22,8 @@ let animalRepository = (function () {
       let animalOverviewItemButton = document.createElement('button');
       let animalDetailsText = document.createElement('p');
       animalOverviewItemButton.innerText = animal.name;
-      animalOverviewItemButton.classList.add('animal-overview-item-button')
+      animalOverviewItemButton.classList.add('animal-overview-item-button');
+      animalOverviewItemButton.setAttribute('aria-label', `Show details about ${animal.name}`);
       let animalDetailsClass = animal.stringName;
       animalDetailsText.classList.add(animalDetailsClass);
       animalOverviewItem.appendChild(animalOverviewItemButton);
