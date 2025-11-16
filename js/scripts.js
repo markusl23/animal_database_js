@@ -112,7 +112,7 @@ let animalRepository = (function () {
         <li class="list-group-item"><strong>Average weight (kg):</strong> ${externalAnimalDetails.averageWeightKilogram}</li>
         <li class="list-group-item"><strong>Food type:</strong> ${externalAnimalDetails.foodType}</li>
       </ul>
-      <img class="img-fluid rounded" src="${externalAnimalDetails.image}" alt="${animal.name}">
+      <img class="img-fluid rounded" src="${externalAnimalDetails.image}" alt="photo of ${animal.name}">
     `;
 
     bootstrapModal.show();
