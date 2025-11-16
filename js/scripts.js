@@ -99,46 +99,27 @@ let animalRepository = (function () {
   let modalContainer = document.querySelector('#modal-container');
 
   // create and populate a modal for an animal set by function parameters
-  function showModal (animal, externalAnimalDetails) {
-    modalContainer.innerHTML = '';
-    
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
-    
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click', hideModal);
-    
-    
-    let titleElement = document.createElement('h1');
-    titleElement.innerText = animal.name;
-    
-    let contentListElement = document.createElement('ul');
-    
-    let contentListHabitat = document.createElement('li');
-    contentListHabitat.innerText = "Habitat: " + externalAnimalDetails.element;
+  const bootstrapModal = new bootstrap.Modal(document.getElementById('animalModal'));
 
-    let contentListWeight = document.createElement('li');
-    contentListWeight.innerText = "Average weight in kilogram: " + externalAnimalDetails.averageWeightKilogram;
+  function showModal(animal, externalAnimalDetails) {
+    let modalElement = document.getElementById('animalModal');
+    let titleElement = modalElement.querySelector('.modal-title');
+    let bodyElement  = modalElement.querySelector('.modal-body');
 
-    let contentListfoodType = document.createElement('li');
-    contentListfoodType.innerText = "Food type: " + externalAnimalDetails.foodType;
+    titleElement.textContent = animal.name;
 
-    let animalImage = document.createElement('img');
-    animalImage.src = externalAnimalDetails.image;
+    bodyElement.innerHTML = `
+      <ul class="list-unstyled mb-3">
+        <li><strong>Habitat:</strong> ${externalAnimalDetails.element}</li>
+        <li><strong>Average weight (kg):</strong> ${externalAnimalDetails.averageWeightKilogram}</li>
+        <li><strong>Food type:</strong> ${externalAnimalDetails.foodType}</li>
+      </ul>
+      <img class="img-fluid rounded" src="${externalAnimalDetails.image}" alt="${animal.name}">
+    `;
 
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(titleElement);
-    modal.appendChild(contentListElement);
-    contentListElement.appendChild(contentListHabitat);
-    contentListElement.appendChild(contentListWeight);
-    contentListElement.appendChild(contentListfoodType);
-    modal.appendChild(animalImage);
-    modalContainer.appendChild(modal);
-
-    modalContainer.classList.add('is-visible');
+    bootstrapModal.show();
   }
+
 
   // function to hide modal after certain evens have occured
   function hideModal () {
