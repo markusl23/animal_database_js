@@ -106,10 +106,10 @@ let animalRepository = (function () {
     titleElement.textContent = animal.name;
 
     bodyElement.innerHTML = `
-      <ul class="list-unstyled mb-3">
-        <li><strong>Habitat:</strong> ${externalAnimalDetails.element}</li>
-        <li><strong>Average weight (kg):</strong> ${externalAnimalDetails.averageWeightKilogram}</li>
-        <li><strong>Food type:</strong> ${externalAnimalDetails.foodType}</li>
+      <ul class="list-unstyled list-group mb-3">
+        <li class="list-group-item"><strong>Habitat:</strong> ${externalAnimalDetails.element}</li>
+        <li class="list-group-item"><strong>Average weight (kg):</strong> ${externalAnimalDetails.averageWeightKilogram}</li>
+        <li class="list-group-item"><strong>Food type:</strong> ${externalAnimalDetails.foodType}</li>
       </ul>
       <img class="img-fluid rounded" src="${externalAnimalDetails.image}" alt="${animal.name}">
     `;
