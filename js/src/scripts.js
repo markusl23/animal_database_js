@@ -58,9 +58,9 @@ let animalRepository = (function () {
       externalAnimalData.forEach(function(externalAnimal) {
         animalRepository.add(externalAnimal);
       })
-    }).catch(function () {
+    }).catch(function (e) {
       hideLoadingMessage(loadingMessageElement);
-      console.log("Error!")
+      console.error(e);
       });
   }
 
@@ -75,9 +75,9 @@ let animalRepository = (function () {
       return response.json();
     }).then(function (externalAnimalDetails) {
       return externalAnimalDetails;
-    }).catch(function () {
+    }).catch(function (e) {
       hideLoadingMessage(loadingMessageElement);
-      console.log("Error!")
+      console.error(e);
       });
   }
 
