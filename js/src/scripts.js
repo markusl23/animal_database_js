@@ -87,7 +87,6 @@ let animalRepository = (function () {
     loadingMessage.classList.add('loading-message');
     loadingMessage.innerText = "Loading animal details...";
     loadingMessageElement.append(loadingMessage);
-    console.log(loadingMessage.innerText);
   }
 
   // hide previously set loading message
