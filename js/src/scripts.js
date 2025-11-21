@@ -3,20 +3,20 @@
 // IIFE to hold functions and variables
 let animalRepository = (function () {
 
-  // array to hold animal data fetched from external resource
+  // Array to hold animal data fetched from external resource
   let animalList = [];
 
-  // return the animal list also outside of the IIFE
+  // Return the animal list also outside of the IIFE
   function getAll () {
     return animalList;
   }
 
-  // add animals to animal list
+  // Add animals to animal list
   function add (newAnimal) {
     animalList.push(newAnimal);
   }
 
-  // populate animal overview with animal buttons
+  // Populate animal overview on web page with animal buttons
   function fillAnimalOverview () {
     let animalOverview = document.querySelector('.animal_overview');
     animalList.forEach(function(animal) {
@@ -35,21 +35,21 @@ let animalRepository = (function () {
     })
   }
 
-  // add event listener to animal overview buttons
+  // Add event listener to animal overview buttons on web page
   function addAnimalButtonEventHandler (button, animal) {
     button.addEventListener('click', function() {
       showOverviewAnimalDetails(animal);
     })
   }
 
-  // toggle modal display for an animal set by function parameter after animal overview button is clicked
+  // Toggle modal display for an animal set by function parameter after animal overview button is clicked on web page
   function showOverviewAnimalDetails (animal) {
     loadAnimalDetails(animal).then(function(externalAnimalDetails) {
       showModal(animal, externalAnimalDetails);
     }) 
   }
 
-  // load animal data (id, name, details URL & string name) from external source
+  // Load animal data (id, name, details URL & string name) from external source
   function loadAnimalList () {
     let loadingMessageElement = document.querySelector('h1');
     showLoadingMessage(loadingMessageElement);
@@ -66,7 +66,7 @@ let animalRepository = (function () {
       });
   }
 
-  // load animal details data (element, weight & food type)
+  // Load animal details data (element, weight & food type) from animal details URL after click on animal button on web page
   function loadAnimalDetails (animal) {
     let loadingMessageElementClass = "." + animal.stringName;
     let loadingMessageElement = document.querySelector(loadingMessageElementClass);
@@ -83,7 +83,7 @@ let animalRepository = (function () {
       });
   }
 
-  // show loading message after element set by function parameter
+  // Show loading message after element on web page set by function parameter
   function showLoadingMessage (loadingMessageElement) {
     let loadingMessage = document.createElement('p');
     loadingMessage.classList.add('loading-message');
@@ -91,13 +91,13 @@ let animalRepository = (function () {
     loadingMessageElement.append(loadingMessage);
   }
 
-  // hide previously set loading message
+  // Hide previously displayed loading message on web page
   function hideLoadingMessage () {
     let loadingMessage = document.querySelector('.loading-message');
     loadingMessage.remove();
   }
 
-  // create and populate a modal for an animal set by function parameters
+  // Use previously fetched animal data to create and populate a new modal for a given animal
   let bootstrapModal = new bootstrap.Modal(document.getElementById('animalModal'));
 
   function showModal(animal, externalAnimalDetails) {
@@ -119,7 +119,7 @@ let animalRepository = (function () {
     bootstrapModal.show();
   }
 
-  // public/external methods
+  // Public/external methods
   return {
     getAll: getAll,
     add: add,
@@ -135,7 +135,7 @@ let animalRepository = (function () {
 
 })()
 
-// fill animal overview
+// Fill animal overview on web page
 
 animalRepository.loadAnimalList().then(function () {
   animalRepository.fillAnimalOverview();
