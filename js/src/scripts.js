@@ -1,3 +1,5 @@
+/* global bootstrap */
+
 // IIFE to hold functions and variables
 let animalRepository = (function () {
 
@@ -35,7 +37,7 @@ let animalRepository = (function () {
 
   // add event listener to animal overview buttons
   function addAnimalButtonEventHandler (button, animal) {
-    button.addEventListener('click', function(event) {
+    button.addEventListener('click', function() {
       showOverviewAnimalDetails(animal);
     })
   }
@@ -90,7 +92,7 @@ let animalRepository = (function () {
   }
 
   // hide previously set loading message
-  function hideLoadingMessage (loadingMessageElement) {
+  function hideLoadingMessage () {
     let loadingMessage = document.querySelector('.loading-message');
     loadingMessage.remove();
   }
