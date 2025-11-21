@@ -107,6 +107,7 @@ let animalRepository = (function () {
 
     titleElement.textContent = animal.name;
 
+    /*
     bodyElement.innerHTML = `
       <ul class="list-unstyled list-group mb-3">
         <li class="list-group-item"><strong>Habitat:</strong> ${externalAnimalDetails.element}</li>
@@ -115,6 +116,38 @@ let animalRepository = (function () {
       </ul>
       <img class="img-fluid rounded" src="${externalAnimalDetails.image}" alt="photo of ${animal.name}">
     `;
+    */
+
+    bodyElement.innerHTML = '';
+
+    let ul = document.createElement('ul');
+    ul.classList.add('list-unstyled', 'list-group', 'mb-3');
+
+    function createListItem(label, value) {
+      let li = document.createElement('li');
+      li.classList.add('list-group-item');
+
+      let strong = document.createElement('strong');
+      strong.textContent = label + ': ';
+
+      let text = document.createTextNode(value);
+
+      li.appendChild(strong);
+      li.appendChild(text);
+      return li;
+    }
+
+    ul.appendChild(createListItem('Habitat', externalAnimalDetails.element));
+    ul.appendChild(createListItem('Average weight (kg)', externalAnimalDetails.averageWeightKilogram));
+    ul.appendChild(createListItem('Food type', externalAnimalDetails.foodType));
+
+    let img = document.createElement('img');
+    img.classList.add('img-fluid', 'rounded');
+    img.src = externalAnimalDetails.image;
+    img.alt = `photo of ${animal.name}`;
+
+    bodyElement.appendChild(ul);
+    bodyElement.appendChild(img);
 
     bootstrapModal.show();
   }
