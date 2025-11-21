@@ -105,9 +105,13 @@ let animalRepository = (function () {
     let titleElement = modalElement.querySelector('.modal-title');
     let bodyElement  = modalElement.querySelector('.modal-body');
 
+    bodyElement.innerHTML = '';
+
     titleElement.textContent = animal.name;
 
-    bodyElement.innerHTML = '';
+    let skeleton = document.createElement('div');
+    skeleton.classList.add('skeleton');
+    bodyElement.appendChild(skeleton);
 
     let ul = document.createElement('ul');
     ul.classList.add('list-unstyled', 'list-group', 'mb-3');
@@ -137,6 +141,10 @@ let animalRepository = (function () {
 
     bodyElement.appendChild(ul);
     bodyElement.appendChild(img);
+
+    img.onload = () => {
+      skeleton.replaceWith(img);
+    };
 
     bootstrapModal.show();
   }
