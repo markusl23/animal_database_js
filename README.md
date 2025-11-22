@@ -5,7 +5,7 @@ This project is a small web application that displays a list of animals and show
 
 ## Features
 
-- Fetches a list of animals from an external JSON resource.
+- Fetches a list of animals from an external resource (https://worldwide-impact.org/animal_data_api/animal_data.json).
 - Generates a dynamic animal overview with clickable buttons.
 - Loads detailed animal information (habitat, weight, food type, image).
 - Uses Bootstrap modals for accessible, keyboard‑friendly dialogs.
@@ -58,7 +58,7 @@ img.onload = () => {
    git clone https://github.com/markusl23/animal-database-js.git
    ```
 2. Open `index.html` in a browser.
-3. Ensure the external API `animal_data.json` is accessible.
+3. Ensure the external resource https://worldwide-impact.org/animal_data_api/animal_data.json is accessible.
 4. (Optional) If using ESLint:
    ```
    npm install
