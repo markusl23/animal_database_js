@@ -1,5 +1,12 @@
-node_modules
+# Folders
+node_modules/
+
+# macOS system files
 .DS_Store
+
+# ESLint config
 eslint.config.mjs
-package-lock.json
+
+# Node package files (only used for ESLint)
 package.json
+package-lock.json
